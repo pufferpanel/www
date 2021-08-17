@@ -1,60 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="PufferPanel">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="PufferPanel is an open source game server management panel designed to be easy to use and easy to install. PufferPanel supports Minecraft, Forge, Spigot, Sponge, Source Dedicated Servers, BungeeCord, PocketMine, Forge, and much more."
+    />
+    <meta name="author" content="PufferPanel" />
+
     <title>PufferPanel</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
 
-    <link href="cover.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- Unfortunetely we use the CDN build of Tailwind so no custom config :c -->
     <style>
-        body {
-            background-color: #07a7e3;
-        }
+      * {
+        --primary: #07a7e3;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      .max-w-8xl {
+        max-width: 96rem;
+      }
+
+      .bg-primary {
+        background-color: var(--primary);
+      }
+
+      .hover\:bg-primary:hover {
+        background-color: var(--primary);
+      }
+
+      .js-perspective-card {
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .js-perspective-card .inner {
+        transform: translateZ(30px) scale(0.95);
+        transform-style: preserve-3d;
+      }
     </style>
+  </head>
 
-    <!-- Fork Corner -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.js" defer></script>
-</head>
+  <body class="bg-primary h-screen">
+    <!-- prettier-ignore -->
+    <div class="max-w-8xl w-full mx-auto h-full bg-primary p-16 overflow-none flex flex-col">
+    <div class="flex flex-col md:flex-row h-full">
+      <div class="w-full h-full flex justify-center items-center mr-16" data-aos="fade-right">
+        <div>
+          <div class="mb-8">
+            <img src="./logo.png" alt="PufferPanel logo" class="mb-4 w-64" />
+            <h1 class="text-white text-2xl font-medium">
+              The simplest, free, open source game management panel.
+            </h1>
+          </div>
+          <div class="text-white text-xl mb-8">
+            PufferPanel is an open source game server management panel designed to
+            be easy to use and easy to install. PufferPanel supports Minecraft,
+            Forge, Spigot, Sponge, Source Dedicated Servers, BungeeCord,
+            PocketMine, and much more.
+          </div>
 
-<body class="text-center">
+          <div class="max-w-md justify-center">
+            <!-- prettier-ignore -->
+            <div class="w-full flex justify-center items-center">
+              <div class="w-full flex flex-col">
+                <div>
+                  <a href="https://docs.pufferpanel.com/en/2.x/installing.html" target="_blank"
+                    class="w-full px-8 py-2 bg-white rounded-full inline-flex justify-center items-center hover:shadow-2xl hover:text-white hover:bg-primary border-2 border-white transition duration-200 ease-in-out">
+                    <span class="font-medium mr-4 text-xl">Install PufferPanel</span>
+                    <span>
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <div class="mt-4 flex justify-center">
+                  <div class="text-gray-200 flex justify-center">
+                    <a href="https://docs.pufferpanel.com/en/1.x/installing.html" target="_blank"
+                      class="text-xl text-gray-200 hover:text-white transition duration-300 ease-in-out mr-4">
+                      legacy 1.x docs
+                    </a>
+                    &bull;
+                    <a
+                      href=""
+                      class="text-xl text-gray-200 hover:text-white transition duration-300 ease-in-out ml-4 mr-4">
+                      GitHub
+                    </a>
+                    &bull;
+                    <a href="" class="text-xl text-gray-200 hover:text-white transition duration-300 ease-in-out ml-4">
+                      Discord
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<!-- Fork Corner -->
-<a href="https://github.com/pufferpanel/pufferpanel" target="_blank" id="fork-corner" class="fork-corner fc-pos-tr fc-animate-default fc-theme-github"></a>
-
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="https://docs.pufferpanel.com">Documentation</a>
-                <a class="nav-link" href="https://discord.gg/v8dz49e">Discord</a>
-            </nav>
+          </div>
         </div>
-    </header>
+      </div>
+      <div class="w-full h-full flex justify-end items-center js-perspective" data-aos="fade-left" data-aos-delay="300">
+        <img src="./screenshots/2.png" alt="PufferPanel screenshot"
+          class="js-perspective-card rounded-2xl shadow-2xl cursor-pointer">
+      </div>
+    </div>
 
-    <main role="main" class="inner cover">
-        <img src="logo.png" alt="PufferPanel">
-        <h1 class="cover-heading">The simplest, free, open source game management panel.</h1>
-        <p class="lead">PufferPanel is an open source game server management panel designed to be easy to use and easy
-            to install. PufferPanel supports Minecraft, Forge, Spigot, Sponge, Source Dedicated Servers, BungeeCord,
-            PocketMine, Forge, and much more.
-        </p>
-        <p class="lead">
-            <a href="https://docs.pufferpanel.com/en/2.x/" class="btn btn-lg btn-secondary">Download</a>
-        </p>
-    </main>
-
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p>We are an open source project, please consider donating to support this project.</p>
-        </div>
+    <footer class="mt-16 text-center">
+      <p class="text-xl text-gray-300">We are an open source project, please consider donating to support this project.
+      </p>
     </footer>
-</div>
-</body>
+  </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    init();
+  </script>
 </html>
