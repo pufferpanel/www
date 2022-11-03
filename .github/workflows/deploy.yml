@@ -1,0 +1,31 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    deployment:
+      runs-on: ubuntu-latest
+      environment:
+        name: production
+        url: https://www.pufferpanel.com/
+      steps:
+        - name: Install SSH key
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_KEY }}
+            name: ${{ secrets.SSH_KEY_TYPE }}
+            known_hosts: ${{ secrets.KNOWN_HOSTS }}
+            if_key_exists: fail
+
+        - name: Check out code
+          uses: actions/checkout@v1
+          
+        - name: Clean
+          run:
+            rm -rf .*
+      
+        - name: Deploy
+          run:
+            rsync -avh --no-owner --delete -e "ssh -p ${{ secrets.SSH_PORT }}" . ${{ secrets.USER }}@${{ secrets.SSH_HOST}}:${{ secrets.WEB_ROOT }}
