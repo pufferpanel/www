@@ -24,7 +24,7 @@ jobs:
           
         - name: Clean
           run:
-            rm -rf .*
+            rm -rf .git .github
       
         - name: Deploy
           run:
